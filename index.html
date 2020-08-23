@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <div class="input-group mb-6 input-group-lg col-sm-3 my-1">
                             <br>
-                            <input type="text" class="form-control" placeholder="Type the password" id="idPassword" style="border-radius: 0.5rem;">
+                            <input type="text" class="form-control" placeholder="Type the password" id="idPassword" style="border-radius: 0.5rem;" autofocus>
                         </div>
                     </div>
                 </form>
@@ -37,13 +37,30 @@
     </div>
     <div class="container" id="content-result">
         <div class="card" id="idCard">
-            <div class="card-body" id="result">
+            <div class="card-body">
+                <span style="display: inline;">
+                    <h2>STRENGTH 
+                        <button type="button" id="refresh"><i class="fas fa-dumbbell" style="color: rgb(59, 67, 138);"></i></button>
+                    </h2>
+                </span>
+                <hr>
                 <div>
-                    <h2>STRENGHT: </h2>
+                    <div id="typepass">
+                        <h4>
+
+                        </h4>
+                        <br>
+                        <div id="strengthResult">
+
+                        </div>
+                    </div>
                 </div>                
             </div>
         </div>
     </div>        
     </div>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

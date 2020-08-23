@@ -33,3 +33,12 @@ body==>result
 #idCard {
     border: none;
 }
+/* refresh button */
+#refresh {
+    border: none;
+    background: none;
+    outline: none;
+}
+.showHidden {
+    display:none;
+}
