@@ -16,7 +16,7 @@ $(document).ready(function () {
                 strength += 30
 
             } else {
-                let calcMath = (sizeElements * 3)
+                let calcMath = (sizeElements * 2)
 
                 strength += calcMath
 
@@ -116,7 +116,7 @@ $(document).ready(function () {
         } else {
 
             $('#typepass').removeClass('showHidden')
-            
+
         }
 
     });
