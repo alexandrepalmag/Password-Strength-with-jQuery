@@ -45,12 +45,6 @@ $(document).ready(function () {
         }
         //============end Business rules==============
 
-        $('#strengthResult').html(
-
-            `
-                `
-        )
-
         //======Results Rendering=====================
         if (strength < 21) {
             //red very weak password
