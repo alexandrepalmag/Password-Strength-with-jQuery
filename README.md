@@ -1,2 +1,2 @@
 # Password-Strength-with-jQuery
-Application to measure the strength of a password
+.Application to measure the strength of a password
