@@ -46,61 +46,32 @@ $(document).ready(function () {
         //============end Business rules==============
 
         //======Results Rendering=====================
-        if (strength < 21) {
-            //red very weak password
-            $('#strengthResult').html(
+        //Function to render this result
+        let renderResult = (strengthData, color) => {
+            return $('#strengthResult').html(
                 `
-                <h5>Strength Analyses:</h5>
-                <h5>${strength}% = Very Weak</h5>                
-                <div class="progress" style="height: 40px;">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: ${strength}%" aria-valuenow="${strength}" aria-valuemin="0" aria-valuemax="100"><strong style="font-size: 30px">${strength}%</strong></div>
-                </div>`
+            <h5>Strength Analyses:</h5>
+            <h5>${strengthData}% = Very Weak</h5>                
+            <div class="progress" style="height: 40px;">
+                <div class="progress-bar bg-${color}" role="progressbar" style="width: ${strengthData}%" aria-valuenow="${strengthData}" aria-valuemin="0" aria-valuemax="100"><strong style="font-size: 30px">${strength}%</strong></div>
+            </div>`
             )
+        }
+
+        if (strength < 21) {
+            renderResult(strength, 'danger')//red very weak password
         } else
             if (strength > 20 && strength < 41) {
-                //orange weak password
-                $('#strengthResult').html(
-                    `
-                    <h5>Strength Analyses:</h5>
-                    <h5>${strength}% = Weak</h5>                    
-                    <div class="progress" style="height: 40px;">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: ${strength}%" aria-valuenow="${strength}" aria-valuemin="0" aria-valuemax="100"><strong style="font-size: 30px">${strength}%</strong></div>
-                    </div>`
-                )
+                renderResult(strength, 'warning')//orange weak password
             } else
                 if (strength > 40 && strength < 61) {
-                    //medium password
-                    $('#strengthResult').html(
-                        `
-                    <h5>Strength Analyses:</h5>
-                    <h5>${strength}% = Medium </h5>                    
-                    <div class="progress" style="height: 40px;">
-                        <div class="progress-bar bg-secondary" role="progressbar" style="width: ${strength}%" aria-valuenow="${strength}" aria-valuemin="0" aria-valuemax="100"><strong style="font-size: 30px">${strength}%</strong></div>
-                    </div>`
-                    )
+                    renderResult(strength, 'secondary')//medium password
                 } else
                     if (strength > 60 && strength < 81) {
-                        // strong password
-                        $('#strengthResult').html(
-                            `
-                    <h5>Strength Analyses:</h5>
-                    <h5>${strength}% = Strong </h5>
-                    <div class="progress" style="height: 40px;">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: ${strength}%" aria-valuenow="${strength}" aria-valuemin="0" aria-valuemax="100"><strong style="font-size: 30px">${strength}%</strong></div>
-                    </div>`
-                        )
+                        renderResult(strength, 'info')// strong password
                     } else {
-                        //very strong password
-                        $('#strengthResult').html(
-                            `
-                <h5>Strength Analyses:</h5>
-                <h5>${strength}% = Very Strong </h5>
-                <div class="progress" style="height: 40px;">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: ${strength}%" aria-valuenow="${strength}" aria-valuemin="0" aria-valuemax="100"><strong style="font-size: 30px">${strength}%</strong></div>
-                    </div>`
-                        )
+                        renderResult(strength, 'success')//very strong password
                     }
-        //======Results Rendering=====================            
 
         //======Hide the div containing the result====
         if (strength == 0) {
